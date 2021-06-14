@@ -1,0 +1,26 @@
+Started GET "/" for ::1 at 2021-06-14 13:41:23 +0100
+
+ActiveRecord::ConnectionNotEstablished - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?:
+
+Started POST "/__better_errors/b2f1dc06686f189a/variables" for ::1 at 2021-06-14 13:41:25 +0100
+Started GET "/" for ::1 at 2021-06-14 13:52:06 +0100
+
+ActiveRecord::ConnectionNotEstablished - FATAL:  role "jamezjaz" does not exist:
+
+Started POST "/__better_errors/9025b86c69e1fba8/variables" for ::1 at 2021-06-14 13:52:06 +0100
+Started GET "/" for ::1 at 2021-06-14 13:53:02 +0100
+
+ActiveRecord::NoDatabaseError - FATAL:  database "demo_blog_development" does not exist:
+
+Started POST "/__better_errors/7433b155510332e9/variables" for ::1 at 2021-06-14 13:53:02 +0100
+  [1m[35m (1049.2ms)[0m  [1m[35mCREATE DATABASE "demo_blog_development" ENCODING = 'unicode'[0m
+  [1m[35m (757.7ms)[0m  [1m[35mCREATE DATABASE "demo_blog_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2021-06-14 13:54:56 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jamezjaz/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jamezjaz/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 23.3ms | Allocations: 443)
+Completed 200 OK in 98ms (Views: 44.8ms | ActiveRecord: 0.0ms | Allocations: 3569)
+
+

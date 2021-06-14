@@ -35,6 +35,9 @@ gem 'simple_form'
 # Hirb provides a mini view framework for console applications and uses it to improve ripl(irb)'s default inspect output.
 gem 'hirb', '~> 0.7.3'
 
+# Ruby linter
+gem 'rubocop', '>= 1.0', '< 2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
