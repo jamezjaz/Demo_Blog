@@ -1,0 +1,11 @@
+<h1 class="title">New Post</h1>
+
+<div class="section">
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :title, input_html: { class: 'input' }, label_html: { class: 'label' }  %>
+
+    <%= f.input :content, input_html: { class: 'textarea' }, label_html: { class: 'label' } %>
+  
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-secondary" %>
+  <% end %>
