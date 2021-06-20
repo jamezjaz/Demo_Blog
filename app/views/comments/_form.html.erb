@@ -1,0 +1,9 @@
+<div class="comments-form">
+  <%= simple_form_for([@post, @post.comments.build]) do |f| %>
+    <%= f.input :name, input_html: { class: 'input rounded w-50' }, label_html: { class: 'label d-flex' }  %>
+
+    <%= f.input :comment, input_html: { class: 'textarea rounded w-50' }, label_html: { class: 'label d-flex' } %>
+    
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -23,5 +23,11 @@
       <%= @post.comments.count %>
       <strong>Comments</strong>
     </h5>
+    <%= render @post.comments %>
+    <div class="comment-form">
+      <hr />
+      <h4 class="subtitle">Leave a reply</h4>
+      <%= render 'comments/form' %>
+    </div>
   </div>
 </section>
