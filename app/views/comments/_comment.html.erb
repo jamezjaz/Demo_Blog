@@ -1,8 +1,11 @@
 <div class="comments">
-  <article class="content">
+  <article class="content d-flex justify-content-between">
     <p>
       <strong><%= comment.name %>: </strong>
       <%= comment.comment %>
     </p>
+    <div class="comment-del">
+      <%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </div>
   </article>
 </div>
