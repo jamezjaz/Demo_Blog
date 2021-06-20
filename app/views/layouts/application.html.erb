@@ -12,14 +12,10 @@
   </head>
 
   <body class="bg-img">
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-custom">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-custom">
       <div class="container-fluid d-inline-flex">
-
-        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon"></span>
-          <a class="navbar-brand justify-cotent-start" href="#home"><%= image_tag "logo.jpeg", size:"50" %></a>
-        </button>
+        <a class="navbar-brand justify-cotent-start" href="#home"><%= image_tag "logo.jpeg", size:"50" %></a>
+        <%= link_to "MyBlog", root_path, class: "navbar" %>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="nav navbar-nav ml-auto" style="float: right">
@@ -29,6 +25,7 @@
             <li class="nav-item"><a class="nav-link" href="#music">music</a></li>
             <li class="nav-item"><a class="nav-link" href="#press-kit">press kit</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">contact</a></li>
+            <%= link_to "New Post", new_post_path, class: "btn btn-secondary" %>
           </ul>
         </div>
       </div>
