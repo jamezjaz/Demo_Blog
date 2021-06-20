@@ -5954,3 +5954,86 @@ Migrating to CreateComments (20210620154846)
   [1m[36mActiveRecord::InternalMetadata Load (51.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(17473287024879945)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(17473287024879945)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPostIdToComments (20210620155823)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.8ms)[0m  [1m[35mALTER TABLE "comments" ADD "post_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210620155823"]]
+  [1m[36mTRANSACTION (21.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(17473287024879945)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-06-20 17:12:49 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (28.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:3
+  Rendered posts/index.html.erb within layouts/application (Duration: 85.8ms | Allocations: 3054)
+Started GET "/posts/13" for ::1 at 2021-06-20 17:12:52 +0100
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6243.2ms | Allocations: 22359)
+Completed 200 OK in 6463ms (Views: 6245.7ms | ActiveRecord: 28.5ms | Allocations: 24796)
+
+
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (57.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered posts/show.html.erb within layouts/application (Duration: 184.7ms | Allocations: 6847)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 203.9ms | Allocations: 10286)
+Completed 200 OK in 241ms (Views: 143.4ms | ActiveRecord: 72.6ms | Allocations: 14443)
+
+
+Started GET "/posts/13" for ::1 at 2021-06-20 17:12:56 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1029)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 4553)
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 2.1ms | Allocations: 5495)
+
+
+Started GET "/posts/13" for ::1 at 2021-06-20 17:13:13 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1243)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 5033)
+Completed 200 OK in 22ms (Views: 16.1ms | ActiveRecord: 0.9ms | Allocations: 6687)
+
+
+Started GET "/posts/13" for ::1 at 2021-06-20 17:13:23 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1237)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 5030)
+Completed 200 OK in 25ms (Views: 17.2ms | ActiveRecord: 1.7ms | Allocations: 6679)
+
+
