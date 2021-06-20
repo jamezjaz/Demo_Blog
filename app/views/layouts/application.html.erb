@@ -7,10 +7,32 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-img">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-custom">
+      <div class="container-fluid d-inline-flex">
+
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <a class="navbar-brand justify-cotent-start" href="#home"><%= image_tag "logo.jpeg", size:"50" %></a>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto" style="float: right">
+            <li class="nav-item"><a class="z" href="#about">about</a></li>
+            <li class="nav-item"><a class="nav-link" href="#events">events</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#music">music</a></li>
+            <li class="nav-item"><a class="nav-link" href="#press-kit">press kit</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

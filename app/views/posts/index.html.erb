@@ -1,9 +1,9 @@
 <section class="section container-fluid">
   <h1 class="title">Blog Index</h1>
   <% @posts.each do |post| %>
-    <div class="card">
+    <div class="card w-75 shadow p-3 my-3">
       <h2 class="card-title">
-        <%= post.title %>
+        <%= link_to post.title, post %>
       </h2>
       <p class="card-text">
         <%= post.content %>

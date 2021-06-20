@@ -26,9 +26,6 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-# bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
-
 # Forms made easy!
 gem 'simple_form'
 
